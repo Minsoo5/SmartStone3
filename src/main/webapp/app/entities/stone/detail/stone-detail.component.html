@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="stone">
+      <h2 data-cy="stoneDetailsHeading"><span jhiTranslate="smartStone3App.stone.detail.title">Stone</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ stone.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.stone.gritLeve">Grit Leve</span></dt>
+        <dd>
+          <span>{{ stone.gritLeve }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.stone.sharpnessLimit">Sharpness Limit</span></dt>
+        <dd>
+          <span>{{ stone.sharpnessLimit }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/stone', stone.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

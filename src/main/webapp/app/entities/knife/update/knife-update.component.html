@@ -1,0 +1,159 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-knife-heading" data-cy="KnifeCreateUpdateHeading" jhiTranslate="smartStone3App.knife.home.createOrEditLabel">
+        Create or edit a Knife
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smartStone3App.knife.knifeStyle" for="field_knifeStyle">Knife Style</label>
+          <select class="form-control" name="knifeStyle" formControlName="knifeStyle" id="field_knifeStyle" data-cy="knifeStyle">
+            <option [ngValue]="null">{{ 'smartStone3App.KnifeStyle.null' | translate }}</option>
+            <option *ngFor="let knifeStyle of knifeStyleValues" [value]="knifeStyle">
+              {{ 'smartStone3App.KnifeStyle.' + knifeStyle | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smartStone3App.knife.knifeSize" for="field_knifeSize">Knife Size</label>
+          <select class="form-control" name="knifeSize" formControlName="knifeSize" id="field_knifeSize" data-cy="knifeSize">
+            <option [ngValue]="null">{{ 'smartStone3App.KnifeSize.null' | translate }}</option>
+            <option *ngFor="let knifeSize of knifeSizeValues" [value]="knifeSize">
+              {{ 'smartStone3App.KnifeSize.' + knifeSize | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smartStone3App.knife.metalType" for="field_metalType">Metal Type</label>
+          <select class="form-control" name="metalType" formControlName="metalType" id="field_metalType" data-cy="metalType">
+            <option [ngValue]="null">{{ 'smartStone3App.MetalType.null' | translate }}</option>
+            <option *ngFor="let metalType of metalTypeValues" [value]="metalType">
+              {{ 'smartStone3App.MetalType.' + metalType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smartStone3App.knife.bevelSides" for="field_bevelSides">Bevel Sides</label>
+          <select class="form-control" name="bevelSides" formControlName="bevelSides" id="field_bevelSides" data-cy="bevelSides">
+            <option [ngValue]="null">{{ 'smartStone3App.BevelSides.null' | translate }}</option>
+            <option *ngFor="let bevelSides of bevelSidesValues" [value]="bevelSides">
+              {{ 'smartStone3App.BevelSides.' + bevelSides | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smartStone3App.knife.currentSharpnessLevel" for="field_currentSharpnessLevel"
+            >Current Sharpness Level</label
+          >
+          <select
+            class="form-control"
+            name="currentSharpnessLevel"
+            formControlName="currentSharpnessLevel"
+            id="field_currentSharpnessLevel"
+            data-cy="currentSharpnessLevel"
+          >
+            <option [ngValue]="null">{{ 'smartStone3App.CurrentSharpness.null' | translate }}</option>
+            <option *ngFor="let currentSharpness of currentSharpnessValues" [value]="currentSharpness">
+              {{ 'smartStone3App.CurrentSharpness.' + currentSharpness | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smartStone3App.knife.desiredOutcome" for="field_desiredOutcome">Desired Outcome</label>
+          <select
+            class="form-control"
+            name="desiredOutcome"
+            formControlName="desiredOutcome"
+            id="field_desiredOutcome"
+            data-cy="desiredOutcome"
+          >
+            <option [ngValue]="null">{{ 'smartStone3App.DesiredOutCome.null' | translate }}</option>
+            <option *ngFor="let desiredOutCome of desiredOutComeValues" [value]="desiredOutCome">
+              {{ 'smartStone3App.DesiredOutCome.' + desiredOutCome | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smartStone3App.knife.startingStone" for="field_startingStone">Starting Stone</label>
+          <input
+            type="text"
+            class="form-control"
+            name="startingStone"
+            id="field_startingStone"
+            data-cy="startingStone"
+            formControlName="startingStone"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smartStone3App.knife.middleStone" for="field_middleStone">Middle Stone</label>
+          <input
+            type="text"
+            class="form-control"
+            name="middleStone"
+            id="field_middleStone"
+            data-cy="middleStone"
+            formControlName="middleStone"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smartStone3App.knife.finishStone" for="field_finishStone">Finish Stone</label>
+          <input
+            type="text"
+            class="form-control"
+            name="finishStone"
+            id="field_finishStone"
+            data-cy="finishStone"
+            formControlName="finishStone"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="smartStone3App.knife.stone" for="field_stones">Stone</label>
+          <select
+            class="form-control"
+            id="field_stones"
+            data-cy="stone"
+            multiple
+            name="stones"
+            formControlName="stones"
+            [compareWith]="compareStone"
+          >
+            <option [ngValue]="stoneOption" *ngFor="let stoneOption of stonesSharedCollection">{{ stoneOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

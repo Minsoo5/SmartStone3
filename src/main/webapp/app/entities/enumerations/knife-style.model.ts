@@ -1,0 +1,17 @@
+export enum KnifeStyle {
+  PAIRING_KNIFE = 'Pairing Knife',
+
+  PETTY_KNIFE = 'Petty Knife',
+
+  FILET_KNIFE = 'Filet Knife',
+
+  BONING_KNIFE = 'Boning Knife',
+
+  UTILITY_KNIFE = 'Utility Knife',
+
+  CHEF_KNIFE = 'Chef Knife',
+
+  CLEAVER = 'Cleaver',
+
+  SLICER = 'Slicer',
+}

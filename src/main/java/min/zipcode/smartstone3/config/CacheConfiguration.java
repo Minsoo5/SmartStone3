@@ -48,6 +48,10 @@ public class CacheConfiguration {
             createCache(cm, min.zipcode.smartstone3.domain.User.class.getName());
             createCache(cm, min.zipcode.smartstone3.domain.Authority.class.getName());
             createCache(cm, min.zipcode.smartstone3.domain.User.class.getName() + ".authorities");
+            createCache(cm, min.zipcode.smartstone3.domain.Knife.class.getName());
+            createCache(cm, min.zipcode.smartstone3.domain.Knife.class.getName() + ".stones");
+            createCache(cm, min.zipcode.smartstone3.domain.Stone.class.getName());
+            createCache(cm, min.zipcode.smartstone3.domain.Stone.class.getName() + ".knives");
             // jhipster-needle-ehcache-add-entry
         };
     }

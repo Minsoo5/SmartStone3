@@ -1,0 +1,33 @@
+{
+  "smartStone3App": {
+    "knife": {
+      "home": {
+        "title": "Knives",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Knife",
+        "createOrEditLabel": "Create or edit a Knife",
+        "notFound": "No Knives found"
+      },
+      "created": "A new Knife is created with identifier {{ param }}",
+      "updated": "A Knife is updated with identifier {{ param }}",
+      "deleted": "A Knife is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Knife {{ id }}?"
+      },
+      "detail": {
+        "title": "Knife"
+      },
+      "id": "ID",
+      "knifeStyle": "Knife Style",
+      "knifeSize": "Knife Size",
+      "metalType": "Metal Type",
+      "bevelSides": "Bevel Sides",
+      "currentSharpnessLevel": "Current Sharpness Level",
+      "desiredOutcome": "Desired Outcome",
+      "startingStone": "Starting Stone",
+      "middleStone": "Middle Stone",
+      "finishStone": "Finish Stone",
+      "stone": "Stone"
+    }
+  }
+}

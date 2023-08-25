@@ -1,0 +1,10 @@
+{
+  "smartStone3App": {
+    "DesiredOutCome": {
+      "null": "",
+      "LASER": "Laser",
+      "WORK_HORSE": "Work Horse",
+      "BUTCHER": "Butcher"
+    }
+  }
+}

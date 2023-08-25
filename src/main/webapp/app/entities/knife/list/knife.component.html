@@ -1,0 +1,146 @@
+<div>
+  <h2 id="page-heading" data-cy="KnifeHeading">
+    <span jhiTranslate="smartStone3App.knife.home.title">Knives</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="smartStone3App.knife.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-knife"
+        [routerLink]="['/knife/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="smartStone3App.knife.home.createLabel"> Create a new Knife </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="knives?.length === 0">
+    <span jhiTranslate="smartStone3App.knife.home.notFound">No Knives found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="knives && knives.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="knifeStyle">
+            <div class="d-flex">
+              <span jhiTranslate="smartStone3App.knife.knifeStyle">Knife Style</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="knifeSize">
+            <div class="d-flex">
+              <span jhiTranslate="smartStone3App.knife.knifeSize">Knife Size</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="metalType">
+            <div class="d-flex">
+              <span jhiTranslate="smartStone3App.knife.metalType">Metal Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bevelSides">
+            <div class="d-flex">
+              <span jhiTranslate="smartStone3App.knife.bevelSides">Bevel Sides</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="currentSharpnessLevel">
+            <div class="d-flex">
+              <span jhiTranslate="smartStone3App.knife.currentSharpnessLevel">Current Sharpness Level</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="desiredOutcome">
+            <div class="d-flex">
+              <span jhiTranslate="smartStone3App.knife.desiredOutcome">Desired Outcome</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="startingStone">
+            <div class="d-flex">
+              <span jhiTranslate="smartStone3App.knife.startingStone">Starting Stone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="middleStone">
+            <div class="d-flex">
+              <span jhiTranslate="smartStone3App.knife.middleStone">Middle Stone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="finishStone">
+            <div class="d-flex">
+              <span jhiTranslate="smartStone3App.knife.finishStone">Finish Stone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stone.id">
+            <div class="d-flex">
+              <span jhiTranslate="smartStone3App.knife.stone">Stone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let knife of knives; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/knife', knife.id, 'view']">{{ knife.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'smartStone3App.KnifeStyle.' + knife.knifeStyle }}">{{ knife.knifeStyle }}</td>
+          <td jhiTranslate="{{ 'smartStone3App.KnifeSize.' + knife.knifeSize }}">{{ knife.knifeSize }}</td>
+          <td jhiTranslate="{{ 'smartStone3App.MetalType.' + knife.metalType }}">{{ knife.metalType }}</td>
+          <td jhiTranslate="{{ 'smartStone3App.BevelSides.' + knife.bevelSides }}">{{ knife.bevelSides }}</td>
+          <td jhiTranslate="{{ 'smartStone3App.CurrentSharpness.' + knife.currentSharpnessLevel }}">{{ knife.currentSharpnessLevel }}</td>
+          <td jhiTranslate="{{ 'smartStone3App.DesiredOutCome.' + knife.desiredOutcome }}">{{ knife.desiredOutcome }}</td>
+          <td>{{ knife.startingStone }}</td>
+          <td>{{ knife.middleStone }}</td>
+          <td>{{ knife.finishStone }}</td>
+          <td>
+            <span *ngFor="let stone of knife.stones; let last = last">
+              <a class="form-control-static" [routerLink]="['/stone', stone.id, 'view']">{{ stone.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/knife', knife.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/knife', knife.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(knife)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "applications": ["SmartStone3"],
+  "changelogDate": "20230825190323",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "stone",
+  "fields": [
+    {
+      "fieldName": "gritLeve",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sharpnessLimit",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Stone",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "knife",
+      "otherEntityRelationshipName": "stone",
+      "ownerSide": false,
+      "relationshipName": "knife",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

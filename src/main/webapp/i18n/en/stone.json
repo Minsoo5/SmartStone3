@@ -1,0 +1,26 @@
+{
+  "smartStone3App": {
+    "stone": {
+      "home": {
+        "title": "Stones",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Stone",
+        "createOrEditLabel": "Create or edit a Stone",
+        "notFound": "No Stones found"
+      },
+      "created": "A new Stone is created with identifier {{ param }}",
+      "updated": "A Stone is updated with identifier {{ param }}",
+      "deleted": "A Stone is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Stone {{ id }}?"
+      },
+      "detail": {
+        "title": "Stone"
+      },
+      "id": "ID",
+      "gritLeve": "Grit Leve",
+      "sharpnessLimit": "Sharpness Limit",
+      "knife": "Knife"
+    }
+  }
+}

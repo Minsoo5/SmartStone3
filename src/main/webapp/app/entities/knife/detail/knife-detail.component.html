@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="knife">
+      <h2 data-cy="knifeDetailsHeading"><span jhiTranslate="smartStone3App.knife.detail.title">Knife</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ knife.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.knife.knifeStyle">Knife Style</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'smartStone3App.KnifeStyle.' + knife.knifeStyle }}">{{ knife.knifeStyle }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.knife.knifeSize">Knife Size</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'smartStone3App.KnifeSize.' + knife.knifeSize }}">{{ knife.knifeSize }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.knife.metalType">Metal Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'smartStone3App.MetalType.' + knife.metalType }}">{{ knife.metalType }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.knife.bevelSides">Bevel Sides</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'smartStone3App.BevelSides.' + knife.bevelSides }}">{{ knife.bevelSides }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.knife.currentSharpnessLevel">Current Sharpness Level</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'smartStone3App.CurrentSharpness.' + knife.currentSharpnessLevel }}">{{
+            knife.currentSharpnessLevel
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.knife.desiredOutcome">Desired Outcome</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'smartStone3App.DesiredOutCome.' + knife.desiredOutcome }}">{{ knife.desiredOutcome }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.knife.startingStone">Starting Stone</span></dt>
+        <dd>
+          <span>{{ knife.startingStone }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.knife.middleStone">Middle Stone</span></dt>
+        <dd>
+          <span>{{ knife.middleStone }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.knife.finishStone">Finish Stone</span></dt>
+        <dd>
+          <span>{{ knife.finishStone }}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStone3App.knife.stone">Stone</span></dt>
+        <dd>
+          <span *ngFor="let stone of knife.stones; let last = last">
+            <a [routerLink]="['/stone', stone.id, 'view']">{{ stone.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/knife', knife.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

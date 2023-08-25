@@ -1,0 +1,13 @@
+export enum MetalType {
+  STAINLESS_STEEL = 'Stainless Steel',
+
+  HIGH_CARBON = 'High Carbon',
+
+  CERAMIC = 'Ceramic',
+
+  TOOL_STEEL = 'Tool Steel',
+
+  ALLOY_STEEL = 'Alloy Steel',
+
+  NOT_SURE = 'Not Sure',
+}

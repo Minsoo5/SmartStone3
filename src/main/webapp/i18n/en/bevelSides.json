@@ -1,0 +1,9 @@
+{
+  "smartStone3App": {
+    "BevelSides": {
+      "null": "",
+      "SINGLE": "Single",
+      "DOUBLE": "Double"
+    }
+  }
+}
