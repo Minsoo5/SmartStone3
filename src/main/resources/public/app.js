@@ -91,16 +91,38 @@ function showKnifeDetail(post) {
   console.log('Knife:', post);
   let li = document.createElement('div');
   let title = document.createElement('h2');
+  let stones = document.createElement('h2');
   let body = document.createElement('p');
   let by = document.createElement('p');
+  let size = document.createElement('p');
+  let metal = document.createElement('p');
+
+  let sStone = document.createElement('h3');
+  let mStone = document.createElement('h3');
+  let fStone = document.createElement('h3');
+
   title.innerHTML = `${post.knifeStyle}`;
   body.innerHTML = `${post.desiredOutcome}`;
+  size.innerHTML = `${post.knifeSize}`;
+  metal.innerHTML = `${post.metalType}`;
+  //by.innerHTML = "\nStone Recommendations: \n"
+  stones.innerHTML = '\nStone Recommendations: \n';
+  sStone.innerHTML = `${post.startingStone}`;
+  mStone.innerHTML = `${post.middleStone}`;
+  fStone.innerHTML = `${post.finishStone}`;
+
   //let postedTime = dateOf(post.time)
   //by.innerHTML = `${post.date} - ${post.reportedBy}`;
 
   li.appendChild(title);
   li.appendChild(body);
+  li.appendChild(size);
+  li.appendChild(metal);
   li.appendChild(by);
+  li.appendChild(stones);
+  li.appendChild(sStone);
+  li.appendChild(mStone);
+  li.appendChild(fStone);
   detail.appendChild(li);
 
   ul.appendChild(detail);
