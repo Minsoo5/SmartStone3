@@ -30,7 +30,7 @@ public class Stone implements Serializable {
     @Column(name = "sharpness_limit")
     private Integer sharpnessLimit;
 
-    @ManyToMany(mappedBy = "stones")
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "stones") // COULD TURTLE, BE CAREFUL
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "stones" }, allowSetters = true)
     private Set<Knife> knives = new HashSet<>();

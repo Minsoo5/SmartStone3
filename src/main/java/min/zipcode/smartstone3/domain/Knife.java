@@ -63,11 +63,13 @@ public class Knife implements Serializable {
     @Column(name = "finish_stone")
     private String finishStone;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "rel_knife__stone", joinColumns = @JoinColumn(name = "knife_id"), inverseJoinColumns = @JoinColumn(name = "stone_id"))
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "knives" }, allowSetters = true)
     private Set<Stone> stones = new HashSet<>();
+
+    // cascading
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
