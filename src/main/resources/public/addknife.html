@@ -13,8 +13,8 @@
     <h1>Your Knife</h1>
     <section id="section">
       <div id="post"></div>
-      <label for="knifeStyle">Knife Style:</label>
 
+      <label for="knifeStyle">Knife Style:</label>
       <select name="style" id="knifeStyle">
         <option value="chef">Chef</option>
         <option value="pairing">Pairing</option>
@@ -22,12 +22,41 @@
         <option value="slicer">Slicer</option>
       </select>
 
-      <label for="bevelsides">Bevel Sides:</label>
+      <label for="metalType">Knife Metal Type:</label>
+      <select name="style" id="metalType">
+        <option value="STAINLESS_STEEL">Stainless Steel</option>
+        <option value="HIGH_CARBON">High Carbon</option>
+        <option value="CERAMIC">Ceramic</option>
+        <option value="TOOL_STEEL">Tool Steel</option>
+        <option value="ALLOY_STEEL">Alloy Steel</option>
+        <option value="NOT_SURE">Not Sure</option>
+      </select>
 
-      <select name="bevelsides" id="bevelsides">
+      <label for="bevelSides">Bevel Sides:</label>
+      <select name="bevelsides" id="bevelSides">
         <option value="one">One</option>
         <option value="two">Two</option>
       </select>
+
+      <label for="currentSharpness">Current Sharpness:</label>
+      <select name="style" id="currentSharpness">
+        <option value="RAZOR_SHARP">Razor Sharp</option>
+        <option value="SHARP">Sharp</option>
+        <option value="STARTING_TO_DULL">Starting To Dull</option>
+        <option value="DULL">Dull</option>
+        <option value="VERY_DULL">Very Dull</option>
+      </select>
+
+      <label for="desiredOutcome">Desired Outcome:</label>
+      <select name="style" id="desiredOutcome">
+        <option value="LASER">Laser</option>
+        <option value="WORK_HORSE">Work Horse</option>
+        <option value="BUTCHER">Butcher</option>
+      </select>
+
+      <button onclick="addKnife()">Add Knife</button>
     </section>
   </body>
+
+  <script type="module" src="addknife.js"></script>
 </html>
