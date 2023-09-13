@@ -1,4 +1,4 @@
-element.addEventListener('click', addKnife);
+element.addEventListener('click', addKnife());
 
 function addKnife() {
   const knifeStyle = document.getElementById('knifeStyle').value;
@@ -25,12 +25,12 @@ function addKnife() {
       },
       {
         id: 6,
-        gritLevel: 2000,
+        gritLevel: 3000,
         sharpnessLimit: 6,
       },
       {
         id: 9,
-        gritLevel: 8000,
+        gritLevel: 6000,
         sharpnessLimit: 9,
       },
     ],
