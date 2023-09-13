@@ -4,15 +4,36 @@ function addKnife() {
   const knifeStyle = document.getElementById('knifeStyle').value;
   const metalType = document.getElementById('metalType').value;
   const bevelSides = document.getElementById('bevelSides').value;
-  const currentSharpness = document.getElementById('currentSharpness').value;
+  const currentSharpnessLevel = document.getElementById('currentSharpness').value;
   const desiredOutcome = document.getElementById('desiredOutcome').value;
 
-  const data = {
+  const knifeData = {
     knifeStyle,
+    knifeSize: null,
     metalType,
     bevelSides,
-    currentSharpness,
+    currentSharpnessLevel,
     desiredOutcome,
+    startingStone: 'Starting Stone: ',
+    middleStone: 'Middle Stone: ',
+    finishStone: 'Finishing Stone: ',
+    stones: [
+      {
+        id: 4,
+        gritLevel: 1000,
+        sharpnessLimit: 4,
+      },
+      {
+        id: 6,
+        gritLevel: 2000,
+        sharpnessLimit: 6,
+      },
+      {
+        id: 9,
+        gritLevel: 8000,
+        sharpnessLimit: 9,
+      },
+    ],
   };
 
   fetch('http://localhost:8080/api/knives', {
@@ -20,7 +41,7 @@ function addKnife() {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(knifeData),
   })
     .then(response => {
       if (!response.ok) {
