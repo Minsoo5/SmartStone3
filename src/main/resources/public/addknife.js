@@ -2,6 +2,7 @@ element.addEventListener('click', addKnife());
 
 function addKnife() {
   const knifeStyle = document.getElementById('knifeStyle').value;
+  const knifeSize = document.getElementById('knifeSize').value;
   const metalType = document.getElementById('metalType').value;
   const bevelSides = document.getElementById('bevelSides').value;
   const currentSharpnessLevel = document.getElementById('currentSharpness').value;
@@ -9,14 +10,14 @@ function addKnife() {
 
   const knifeData = {
     knifeStyle,
-    knifeSize: null,
+    knifeSize,
     metalType,
     bevelSides,
     currentSharpnessLevel,
     desiredOutcome,
-    startingStone: 'Starting Stone: ',
-    middleStone: 'Middle Stone: ',
-    finishStone: 'Finishing Stone: ',
+    startingStone: 'Stone 1',
+    middleStone: 'Stone 2',
+    finishStone: 'Stone 3',
     stones: [
       {
         id: 4,
